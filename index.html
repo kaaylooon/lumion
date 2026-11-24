@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ===================== SEO ===================== -->
-    <title>Logikós — Aulas Particulares de Matemática e Física | Ensino Médio</title>
+    <title>Lúmion — Aulas Particulares de Matemática e Física | Ensino Médio</title>
     <meta name="description"
         content="Aulas particulares on-line de Matemática e Física para
         estudantes do Ensino Médio e Fundamental. Professor medalhista em olimpíadas (OBMEP, OBF, OBLI). Acompanhamento individual e em pequenos grupos, com diagnóstico das dificuldades e exercícios direcionados.">
@@ -14,19 +14,19 @@
         reforço ensino médio, professor particular matemática, aulas online matemática física, preparação OBMEP, OBF">
     <meta name="author" content="Kaylon Souza Gomes">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://kaaylooon.github.io/logikos/">
+    <link rel="canonical" href="https://kaaylooon.github.io/lumion/">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:title" content="Logikós — Aulas Particulares de Matemática e Física">
+    <meta property="og:title" content="Lúmion — Aulas Particulares de Matemática e Física">
     <meta property="og:description"
         content="Aulas on-line para o Ensino Médio com acompanhamento individual, diagnóstico e exercícios direcionados.">
-    <meta property="og:url" content="https://kaaylooon.github.io/logikos/">
-    <meta property="og:site_name" content="Logikós">
+    <meta property="og:url" content="https://kaaylooon.github.io/lumion/">
+    <meta property="og:site_name" content="Lúmion">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230a0a0a'/%3E%3Ctext x='50' y='74' font-size='64' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'%3E%CE%9B%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230a0a0a'/%3E%3Ctext x='50' y='74' font-size='64' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,9 +38,9 @@
 {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  "name": "Logikós",
+  "name": "Lúmion",
   "description": "Aulas particulares on-line de Matemática e Física para estudantes do Ensino Médio.",
-  "url": "https://kaaylooon.github.io/logikos/",
+  "url": "https://kaaylooon.github.io/lumion/",
   "founder": { "@type": "Person", "name": "Kaylon Souza Gomes" },
   "areaServed": "BR",
   "sameAs": []
@@ -530,7 +530,6 @@
             position: relative;
             overflow: hidden;
             background: var(--bg-page);
-            /* mais respiro vertical */
             padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(5rem, 11vw, 8rem);
         }
 
@@ -545,13 +544,11 @@
             -webkit-mask-image: radial-gradient(600px 420px at 82% 12%, #000, transparent);
         }
 
-        /* Sem max-width aqui: o hero passa a alinhar com as outras sections */
         .hero__inner {
             position: relative;
             z-index: 1;
         }
 
-        /* Mas o texto continua confortável para leitura */
         .hero h1,
         .hero__actions,
         .hero__trust {
@@ -562,7 +559,6 @@
             margin-bottom: 1.25rem;
         }
 
-        /* Destaque manuscrito */
         .hero h1 em {
             font-family: var(--font-script);
             font-style: normal;
@@ -571,7 +567,6 @@
             color: var(--text-main);
             letter-spacing: 0;
             padding: 0 0.25em;
-            /* leve realce inferior, sem fundo preto */
         }
 
         .hero p {
@@ -593,13 +588,13 @@
             display: flex;
             width: 100%;
             max-width: none;
-            /* anula o cap de 900px do agrupamento h1/actions/trust */
             overflow: hidden;
             padding: 0.85rem 0;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+
+            -webkit-mask: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%) 0 0 / 100% 100% no-repeat;
+            mask: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%) 0 0 / 100% 100% no-repeat;
         }
 
         .hero__trust-group {
@@ -607,7 +602,16 @@
             width: max-content;
             flex-shrink: 0;
             animation: hero-trust-scroll 28s linear infinite;
-            will-change: transform;
+        }
+
+        @keyframes hero-trust-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         .hero__trust:hover .hero__trust-group,
@@ -621,7 +625,6 @@
             flex-shrink: 0;
             gap: 2.25rem;
             padding-right: 2.25rem;
-            /* mesmo gap entre a última e a primeira da cópia seguinte */
         }
 
         .hero__trust span {
@@ -644,16 +647,6 @@
             flex-shrink: 0;
         }
 
-        @keyframes hero-trust-scroll {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
         @media (max-width: 640px) {
             .hero__trust {
                 padding: 0.75rem 0;
@@ -671,7 +664,6 @@
             }
         }
 
-        /* Quem prefere menos movimento recebe uma grade estática, sem animação */
         @media (prefers-reduced-motion: reduce) {
             .hero__trust {
                 -webkit-mask-image: none;
@@ -969,8 +961,6 @@
             border: 1px solid var(--primary);
         }
 
-        /* Fundo branco no card preto — a borda preta (herdada do .badge base)
-           mantém o badge visível sobre a página branca e sobre o card. */
         .price-card--featured .badge {
             background: var(--on-primary);
             color: var(--primary);
@@ -1646,8 +1636,8 @@
     <!-- ============================ HEADER ============================ -->
     <header class="header">
         <div class="header__inner">
-            <a class="logo" href="#inicio" aria-label="Logikós — início">
-                <span class="logo__mark" aria-hidden="true">Λ</span> LOGIKÓS
+            <a class="logo" href="#inicio" aria-label="Lúmion — início">
+                <span class="logo__mark" aria-hidden="true">L</span> LÚMION
             </a>
 
             <nav class="nav" id="nav" aria-label="Navegação principal">
@@ -1658,12 +1648,12 @@
                 <a href="#disciplinas">Conteúdos</a>
                 <a href="#contato">Contato</a>
                 <a class="btn btn--gold header__cta" href="#"
-                    data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
+                    data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
                     target="_blank" rel="noopener">Falar no WhatsApp</a>
             </nav>
 
             <a class="btn btn--gold header-cta-desktop" href="#"
-                data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
+                data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
                 target="_blank" rel="noopener">Falar no WhatsApp</a>
 
             <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
@@ -1684,7 +1674,7 @@
             </p>
             <div class="hero__actions">
                 <a class="btn btn--gold" href="#"
-                    data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
+                    data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
                     target="_blank" rel="noopener">
                     Quero saber mais sobre as aulas
                 </a>
@@ -1742,7 +1732,7 @@
 
             <div class="problem-close">
                 Seja qual for sua situação, estudar não precisa ser uma sequência de tentativas frustradas.
-                No <strong>Logikós</strong>, o acompanhamento começa entendendo o que você precisa aprender.
+                No <strong>Lúmion</strong>, o acompanhamento começa entendendo o que você precisa aprender.
             </div>
         </div>
     </section>
@@ -1806,7 +1796,7 @@
                         <li>Acompanhamento da evolução</li>
                     </ul>
                     <a class="btn btn--outline btn--block" href="#"
-                        data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre o Plano Semanal (4 aulas individuais por mês)."
+                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o Plano Semanal (4 aulas individuais por mês)."
                         target="_blank" rel="noopener">Quero este plano</a>
                 </article>
 
@@ -1826,7 +1816,7 @@
                         <li>Suporte para questões e avaliações</li>
                     </ul>
                     <a class="btn btn--gold btn--block" href="#"
-                        data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre o Plano Intensivo (8 aulas individuais por mês)."
+                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o Plano Intensivo (8 aulas individuais por mês)."
                         target="_blank" rel="noopener">Quero este plano</a>
                 </article>
 
@@ -1845,7 +1835,7 @@
                         <li>Alternativa mais acessível</li>
                     </ul>
                     <a class="btn btn--outline btn--block" href="#"
-                        data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre o Plano Coletivo (pequenos grupos)."
+                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o Plano Coletivo (pequenos grupos)."
                         target="_blank" rel="noopener">Quero este plano</a>
                 </article>
             </div>
@@ -1856,7 +1846,7 @@
                     <p>Combinação das duas disciplinas com condição especial.</p>
                 </div>
                 <a class="btn btn--gold" href="#"
-                    data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre o combo de Matemática + Física."
+                    data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o combo de Matemática + Física."
                     target="_blank" rel="noopener">Quero o combo</a>
             </div>
 
@@ -1878,7 +1868,7 @@
 
                 <div class="teacher__bio">
                     <p>
-                        Sou professor particular e idealizador do <strong>Logikós</strong>, com atuação voltada ao
+                        Sou professor particular e idealizador do <strong>Lúmion</strong>, com atuação voltada ao
                         ensino
                         de Matemática e Física para estudantes do Ensino
                         Médio.
@@ -1908,7 +1898,6 @@
             </div>
 
             <div class="bento-grid">
-                <!-- OBMEP -->
                 <article class="bento-card bento-md-w">
                     <i aria-hidden="true">★</i>
                     <div>
@@ -1918,7 +1907,6 @@
                     </div>
                 </article>
 
-                <!-- OBF -->
                 <article class="bento-card bento-md-w">
                     <i aria-hidden="true">★</i>
                     <div>
@@ -1928,7 +1916,6 @@
                     </div>
                 </article>
 
-                <!-- OBA -->
                 <article class="bento-card bento-sm">
                     <i aria-hidden="true">★</i>
                     <div>
@@ -1938,7 +1925,6 @@
                     </div>
                 </article>
 
-                <!-- O2 -->
                 <article class="bento-card bento-sm">
                     <i aria-hidden="true">★</i>
                     <div>
@@ -1948,7 +1934,6 @@
                     </div>
                 </article>
 
-                <!-- OBLI -->
                 <article class="bento-card bento-sm">
                     <i aria-hidden="true">★</i>
                     <div>
@@ -1958,7 +1943,6 @@
                     </div>
                 </article>
 
-                <!-- OLITEF -->
                 <article class="bento-card bento-sm">
                     <i aria-hidden="true">★</i>
                     <div>
@@ -2031,7 +2015,7 @@
         </div>
     </section>
 
-    <!-- ============================ DISCIPLINAS (movida para cá) ============================ -->
+    <!-- ============================ DISCIPLINAS ============================ -->
     <section class="section section--alt" id="disciplinas">
         <div class="container">
             <div class="section-head">
@@ -2538,7 +2522,7 @@
                         adequada.</p>
 
                     <a class="contact__wa" href="#"
-                        data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
+                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
                         target="_blank" rel="noopener">
                         <span class="contact__wa-icon" aria-hidden="true">✆</span>
                         <span>
@@ -2616,10 +2600,10 @@
     <section class="final-cta">
         <div class="container">
             <h2>Pronto para destravar em Matemática e Física?</h2>
-            <p>Fale comigo, conte o que está difícil e descubra como o acompanhamento do Logikós pode ajudar no seu
+            <p>Fale comigo, conte o que está difícil e descubra como o acompanhamento do Lúmion pode ajudar no seu
                 aprendizado.</p>
             <a class="btn btn--gold" href="#"
-                data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
+                data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
                 target="_blank" rel="noopener">Falar sobre as aulas pelo WhatsApp</a>
         </div>
     </section>
@@ -2627,17 +2611,17 @@
     <!-- ============================ FOOTER ============================ -->
     <footer class="footer">
         <div class="footer__inner">
-            <div><strong>LOGIKÓS</strong> — Matemática e Física com compreensão, raciocínio e método.</div>
+            <div><strong>LÚMION</strong> — Matemática e Física com compreensão, raciocínio e método.</div>
             <div>
-                <a href="#" data-wa="Olá! Conheci o Logikós pelo site." target="_blank" rel="noopener">WhatsApp</a>
-                &nbsp;·&nbsp; © <span id="year">2025</span> Logikós
+                <a href="#" data-wa="Olá! Conheci o Lúmion pelo site." target="_blank" rel="noopener">WhatsApp</a>
+                &nbsp;·&nbsp; © <span id="year">2025</span> Lúmion
             </div>
         </div>
     </footer>
 
     <!-- ============================ WHATSAPP FLUTUANTE ============================ -->
     <a class="wa-float" href="#"
-        data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
+        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
         target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -2698,7 +2682,7 @@
                     return;
                 }
                 const mensagem =
-                    'Olá! Conheci o Logikós pelo site e gostaria de mais informações.\n\n' +
+                    'Olá! Conheci o Lúmion pelo site e gostaria de mais informações.\n\n' +
                     'Nome: ' + nome + '\n' +
                     'Ano escolar: ' + ano + '\n' +
                     'Disciplina: ' + disciplina + '\n' +
