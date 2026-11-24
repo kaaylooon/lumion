@@ -589,61 +589,113 @@
         }
 
         .hero__trust {
+            position: relative;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            width: 100%;
+            max-width: none;
+            /* anula o cap de 900px do agrupamento h1/actions/trust */
+            overflow: hidden;
+            padding: 0.85rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+        }
+
+        .hero__trust-group {
+            display: flex;
+            width: max-content;
+            flex-shrink: 0;
+            animation: hero-trust-scroll 28s linear infinite;
+            will-change: transform;
+        }
+
+        .hero__trust:hover .hero__trust-group,
+        .hero__trust:focus-within .hero__trust-group {
+            animation-play-state: paused;
+        }
+
+        .hero__trust-copy {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            gap: 2.25rem;
+            padding-right: 2.25rem;
+            /* mesmo gap entre a última e a primeira da cópia seguinte */
         }
 
         .hero__trust span {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.8rem;
-            border: 1px solid var(--border-color);
-            border-radius: 999px;
-            background: var(--surface-container);
-            font-family: var(--font-sans);
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0;
-            text-transform: none;
-            color: var(--text-main);
-            transition: border-color 0.15s var(--hover-ease);
+            gap: 0.6rem;
             white-space: nowrap;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-main);
+            letter-spacing: 0;
         }
 
         .hero__trust span::before {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 0.85em;
-            line-height: 1;
+            width: 5px;
+            height: 5px;
+            border-radius: 999px;
+            background: var(--primary);
+            flex-shrink: 0;
         }
 
-        .hero__trust span:hover {
-            border-color: var(--primary);
+        @keyframes hero-trust-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
-        /* Em telas estreitas os chips viram uma lista vertical com check */
         @media (max-width: 640px) {
             .hero__trust {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.45rem;
+                padding: 0.75rem 0;
+                -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+                mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+            }
+
+            .hero__trust-copy {
+                gap: 1.75rem;
+                padding-right: 1.75rem;
             }
 
             .hero__trust span {
-                display: flex;
-                width: 100%;
-                border: 0;
-                padding: 0;
-                background: none;
-                border-radius: 0;
-                white-space: normal;
-                font-size: 0.9rem;
+                font-size: 0.82rem;
+            }
+        }
+
+        /* Quem prefere menos movimento recebe uma grade estática, sem animação */
+        @media (prefers-reduced-motion: reduce) {
+            .hero__trust {
+                -webkit-mask-image: none;
+                mask-image: none;
             }
 
-            .hero__trust span:hover {
-                border-color: transparent;
+            .hero__trust-group {
+                animation: none;
+                width: 100%;
+            }
+
+            .hero__trust-copy {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 0.5rem 1.25rem;
+                padding-right: 0;
+            }
+
+            .hero__trust-copy[aria-hidden="true"] {
+                display: none;
+            }
+
+            .hero__trust span {
+                white-space: normal;
             }
         }
 
@@ -766,8 +818,8 @@
         /* ===================== Preços ===================== */
         .pricing {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
             align-items: stretch;
         }
 
@@ -815,6 +867,10 @@
         .price-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.35rem;
+        }
+
+        .price-card--featured h3 {
+            color: var(--on-primary)
         }
 
         .price-card__desc {
@@ -873,19 +929,16 @@
 
         .price-card__features li {
             position: relative;
-            padding-left: 1.4rem;
             font-size: 0.9rem;
             color: var(--text-main);
         }
 
         .price-card__features li::before {
-            content: "✓";
             position: absolute;
             left: 0;
             top: 0;
             color: var(--primary);
             font-weight: 700;
-            font-size: 0.85em;
         }
 
         .price-card--featured .price-card__features li {
@@ -925,7 +978,7 @@
         }
 
         .combo {
-            margin-top: 1.25rem;
+            margin-top: 3.5rem;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -957,13 +1010,13 @@
             color: var(--text-dim);
             text-align: center;
             font-family: var(--font-mono);
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 1000px) {
             .pricing {
                 grid-template-columns: 1fr;
-                max-width: 480px;
+                max-width: 720px;
                 margin: 0 auto;
             }
         }
@@ -1065,9 +1118,7 @@
         /* ===================== Professor ===================== */
         .teacher {
             display: grid;
-            grid-template-columns: 280px 1fr;
             gap: 2.25rem;
-            align-items: start;
         }
 
         .teacher__card {
@@ -1141,10 +1192,6 @@
         @media (max-width: 780px) {
             .teacher {
                 grid-template-columns: 1fr;
-            }
-
-            .teacher__card {
-                max-width: 250px;
             }
         }
 
@@ -1644,12 +1691,23 @@
                 </a>
                 <a class="btn btn--outline" href="#modalidades">Ver modalidades e preços</a>
             </div>
-            <div class="hero__trust">
-                <span>Atendimento 100% on-line</span>
-                <span>Português e inglês</span>
-                <span>Acompanhamento escolar</span>
-                <span>Olimpíadas Científicas</span>
-                <span>Concursos e vestibulares</span>
+            <div class="hero__trust" aria-label="Diferenciais do atendimento">
+                <div class="hero__trust-group">
+                    <div class="hero__trust-copy">
+                        <span>Atendimento 100% on-line</span>
+                        <span>Português e Inglês</span>
+                        <span>Acompanhamento escolar</span>
+                        <span>Olimpíadas Científicas</span>
+                        <span>Concursos e vestibulares</span>
+                    </div>
+                    <div class="hero__trust-copy" aria-hidden="true">
+                        <span>Atendimento 100% on-line</span>
+                        <span>Português e inglês</span>
+                        <span>Acompanhamento escolar</span>
+                        <span>Olimpíadas Científicas</span>
+                        <span>Concursos e vestibulares</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1660,14 +1718,16 @@
             <div class="section-head">
                 <span class="eyebrow">Você se identifica?</span>
                 <h2>Você sente que está ficando para trás em Matemática ou Física?</h2>
-                <p class="lead">Muitos estudantes acompanham a explicação na sala, mas travam na hora de resolver os
+                <p class="lead">Muitos estudantes acompanham a explicação em
+                    aula, mas travam na hora de resolver os
                     exercícios sozinhos. Isso não é falta de capacidade — é falta de um diagnóstico e de um plano.</p>
             </div>
 
             <div class="problem-grid">
                 <article class="problem-card">
                     <h3>Entende a aula, mas não resolve</h3>
-                    <p>Você acompanha a explicação, mas na hora da prova ou do exercício não sabe por onde começar.</p>
+                    <p>Você acompanha a explicação, mas na hora da aplicação
+                        (prova ou exercício), não sabe por onde começar.</p>
                 </article>
                 <article class="problem-card">
                     <h3>Lacunas de conteúdos anteriores</h3>
@@ -1675,7 +1735,8 @@
                 </article>
                 <article class="problem-card">
                     <h3>Quer ir além do básico</h3>
-                    <p>Você deseja aprofundar o raciocínio e enfrentar questões mais desafiadoras, como as de
+                    <p>Você deseja aprofundar e enfrentar questões
+                        mais desafiadoras, como as de concursos militares e
                         olimpíadas.</p>
                 </article>
             </div>
