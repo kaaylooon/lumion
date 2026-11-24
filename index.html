@@ -9,7 +9,7 @@
     <title>Lúmion — Aulas Particulares de Matemática e Física | Ensino Médio</title>
     <meta name="description"
         content="Aulas particulares on-line de Matemática e Física para
-        estudantes do Ensino Médio e Fundamental. Professor medalhista em olimpíadas (OBMEP, OBF, OBLI). Acompanhamento individual e em pequenos grupos, com diagnóstico das dificuldades e exercícios direcionados.">
+        estudantes do Ensino Médio e Fundamental. Professor medalhista em olimpíadas (OBMEP, OBF, OBLI). Acompanhamento individual em dois formatos: Essencial e Intensivo.">
     <meta name="keywords" content="aulas particulares matemática, aulas de física online,
         reforço ensino médio, professor particular matemática, aulas online matemática física, preparação OBMEP, OBF">
     <meta name="author" content="Kaylon Souza Gomes">
@@ -813,6 +813,8 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
             align-items: stretch;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .price-card {
@@ -967,47 +969,28 @@
             box-shadow: 0 2px 8px rgba(10, 10, 10, 0.10);
         }
 
-        .combo {
-            margin-top: 3.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 1.35rem 1.5rem;
-            background: var(--surface-container-high);
-            border: 1px solid var(--border-color);
-            border-radius: var(--card-radius);
-        }
-
-        .combo h3 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .combo p {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        .combo strong {
-            color: var(--on-surface);
-        }
-
         .price-note {
-            margin-top: 1.25rem;
+            margin-top: 1.5rem;
             font-size: 0.8rem;
             color: var(--text-dim);
             text-align: center;
             font-family: var(--font-mono);
             letter-spacing: 0.01em;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.65;
+        }
+
+        .price-note strong {
+            color: var(--on-surface);
+            font-weight: 600;
         }
 
         @media (max-width: 1000px) {
             .pricing {
                 grid-template-columns: 1fr;
-                max-width: 720px;
-                margin: 0 auto;
+                max-width: 480px;
             }
         }
 
@@ -1111,46 +1094,6 @@
             gap: 2.25rem;
         }
 
-        .teacher__card {
-            background: var(--primary);
-            border-radius: var(--card-radius);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            color: var(--on-primary);
-            box-shadow: 0 1px 0 rgba(255, 255, 255, .15) inset, 0 20px 40px rgba(10, 10, 10, .18);
-        }
-
-        .teacher__avatar {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(255, 255, 255, .2);
-            display: grid;
-            place-items: center;
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            color: var(--on-primary);
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-
-        .teacher__card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 0.25rem;
-            color: var(--on-primary);
-        }
-
-        .teacher__card p {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, .65);
-            line-height: 1.6;
-        }
-
         .teacher__bio p {
             color: var(--text-dim);
             margin-bottom: 0.9rem;
@@ -1158,31 +1101,6 @@
 
         .teacher__bio strong {
             color: var(--on-surface);
-        }
-
-        .teacher__tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.25rem;
-        }
-
-        .teacher__tags span {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            padding: 0.4rem 0.75rem;
-            border-radius: 999px;
-            background: var(--surface-container-high);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-        }
-
-        @media (max-width: 780px) {
-            .teacher {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* ===================== Distinções (bento-grid) ===================== */
@@ -1775,83 +1693,60 @@
             <div class="section-head">
                 <span class="eyebrow">Modalidades e investimento</span>
                 <h2>Escolha o formato ideal para você</h2>
-                <p class="lead">Aulas individuais para quem busca atenção exclusiva, ou pequenos grupos para quem
-                    prefere uma alternativa mais acessível. Todos os planos incluem diagnóstico, exercícios direcionados
-                    e acompanhamento.</p>
+                <p class="lead">Dois planos individuais, com a mesma qualidade de acompanhamento. A diferença está na
+                    frequência dos encontros.</p>
             </div>
 
             <div class="pricing">
+                <!-- ESSENCIAL -->
                 <article class="price-card">
-                    <span class="price-card__tag">Individual</span>
-                    <h3>Plano Semanal</h3>
-                    <p class="price-card__desc">Ideal para manter o ritmo e acompanhar o conteúdo escolar sem acumular
-                        dúvidas.</p>
-                    <div class="price-card__amount">R$ 120 <small>/mês</small></div>
+                    <span class="price-card__tag">Essencial</span>
+                    <h3>Acompanhamento semanal</h3>
+                    <p class="price-card__desc">Ideal para manter o ritmo, esclarecer dúvidas e acompanhar o conteúdo
+                        escolar ao longo do mês.</p>
+                    <div class="price-card__amount">R$ 100 <small>/mês</small></div>
                     <p class="price-card__meta">4 aulas · 60 min · 1× por semana</p>
                     <ul class="price-card__features">
                         <li>Avaliação inicial das dificuldades</li>
                         <li>Planejamento personalizado</li>
                         <li>Aulas de Matemática e/ou Física</li>
-                        <li>Exercícios e resolução comentada</li>
+                        <li>Exercícios direcionados</li>
+                        <li>Resolução comentada</li>
                         <li>Acompanhamento da evolução</li>
                     </ul>
                     <a class="btn btn--outline btn--block" href="#"
-                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o Plano Semanal (4 aulas individuais por mês)."
+                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o plano Essencial (4 aulas individuais por mês)."
                         target="_blank" rel="noopener">Quero este plano</a>
                 </article>
 
+                <!-- INTENSIVO -->
                 <article class="price-card price-card--featured">
                     <span class="badge">Mais procurado</span>
-                    <span class="price-card__tag">Individual</span>
-                    <h3>Plano Intensivo</h3>
-                    <p class="price-card__desc">Para quem precisa recuperar conteúdo, se preparar para avaliações ou
-                        aprofundar o raciocínio.</p>
-                    <div class="price-card__amount">R$ 200 <small>/mês</small></div>
+                    <span class="price-card__tag">Intensivo</span>
+                    <h3>Acompanhamento intensivo</h3>
+                    <p class="price-card__desc">Para quem precisa recuperar conteúdos, reforçar a aprendizagem ou se
+                        preparar para avaliações.</p>
+                    <div class="price-card__amount">R$ 190 <small>/mês</small></div>
                     <p class="price-card__meta">8 aulas · 60 min · 2× por semana</p>
                     <ul class="price-card__features">
-                        <li>Tudo do Plano Semanal</li>
+                        <li>Todos os benefícios do Essencial</li>
                         <li>Maior frequência de acompanhamento</li>
                         <li>Revisão de conteúdos anteriores</li>
-                        <li>Planejamento intensivo por objetivo</li>
-                        <li>Suporte para questões e avaliações</li>
+                        <li>Planejamento por objetivos</li>
+                        <li>Preparação para avaliações</li>
+                        <li>Acompanhamento mais próximo</li>
                     </ul>
                     <a class="btn btn--gold btn--block" href="#"
-                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o Plano Intensivo (8 aulas individuais por mês)."
+                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o plano Intensivo (8 aulas individuais por mês)."
                         target="_blank" rel="noopener">Quero este plano</a>
                 </article>
-
-                <article class="price-card">
-                    <span class="price-card__tag">Pequenos grupos</span>
-                    <h3>Plano Coletivo</h3>
-                    <p class="price-card__desc">Aprenda em uma turma reduzida, com estudantes de níveis e objetivos
-                        compatíveis.</p>
-                    <div class="price-card__amount">R$ 79 <small>/mês</small></div>
-                    <p class="price-card__meta">8 encontros · turmas reduzidas</p>
-                    <ul class="price-card__features">
-                        <li>Explicações coletivas</li>
-                        <li>Resolução de exercícios em grupo</li>
-                        <li>Interação e troca de conhecimentos</li>
-                        <li>Material compatível com o nível da turma</li>
-                        <li>Alternativa mais acessível</li>
-                    </ul>
-                    <a class="btn btn--outline btn--block" href="#"
-                        data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o Plano Coletivo (pequenos grupos)."
-                        target="_blank" rel="noopener">Quero este plano</a>
-                </article>
-            </div>
-
-            <div class="combo">
-                <div>
-                    <h3>Matemática & Física</h3>
-                    <p>Combinação das duas disciplinas com condição especial.</p>
-                </div>
-                <a class="btn btn--gold" href="#"
-                    data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre o combo de Matemática + Física."
-                    target="_blank" rel="noopener">Quero o combo</a>
             </div>
 
             <p class="price-note">
-                Valores de lançamento · por aluno e por disciplina · sujeitos a disponibilidade de horários
+                <strong>Como funciona a mensalidade:</strong> valor fixo por mês, com calendário de aulas informado
+                antecipadamente. Pagamento via Pix até o dia 5. Reposições mediante aviso com 24h de antecedência;
+                faltas sem aviso são consideradas aulas realizadas. Feriados previstos no calendário. Cancelamento
+                com aviso prévio de 30 dias.
             </p>
         </div>
     </section>
@@ -1865,13 +1760,10 @@
             </div>
 
             <div class="teacher">
-
                 <div class="teacher__bio">
                     <p>
                         Sou professor particular e idealizador do <strong>Lúmion</strong>, com atuação voltada ao
-                        ensino
-                        de Matemática e Física para estudantes do Ensino
-                        Médio.
+                        ensino de Matemática e Física para estudantes do Ensino Médio.
                     </p>
                     <p>
                         Minha proposta é tornar o aprendizado mais claro, identificar as dificuldades que impedem o
@@ -1974,42 +1866,61 @@
                     <p>Não. O atendimento apresentado nesta página é totalmente on-line, com aulas ao vivo por
                         videochamada.</p>
                 </details>
+
                 <details>
                     <summary>Preciso contratar Matemática e Física juntas?</summary>
                     <p>Não. Você pode buscar acompanhamento em apenas uma das disciplinas ou nas duas, conforme sua
-                        necessidade.</p>
+                        necessidade. Os planos Essencial e Intensivo contemplam as duas.</p>
                 </details>
+
                 <details>
                     <summary>As aulas podem ser em inglês?</summary>
                     <p>Sim. Além do português, ofereço aulas em inglês — útil para estudantes bilíngues, famílias
                         expatriadas ou quem quer treinar o vocabulário técnico da área.</p>
                 </details>
+
                 <details>
                     <summary>Vocês preparam para olimpíadas?</summary>
-                    <p>Sim. Tenho familiaridade
+                    <p>Sim. Pela minha própria trajetória em OBMEP, OBF, OBA e outras competições, tenho familiaridade
                         com o tipo de raciocínio e de questões dessas provas, e posso incluir essa preparação no plano
                         de estudos.</p>
                 </details>
+
                 <details>
-                    <summary>Como funcionam as aulas individuais?</summary>
-                    <p>O planejamento é adaptado ao nível, às dificuldades e aos objetivos do estudante. Cada aula é
-                        preparada a partir do diagnóstico inicial e ajustada conforme a evolução.</p>
+                    <summary>Como funciona a cobrança?</summary>
+                    <p>A mensalidade é um valor fixo por mês, com calendário de aulas informado antecipadamente. O
+                        pagamento é via Pix até o dia 5 de cada mês. O calendário de aulas (incluindo feriados) é
+                        enviado antes do início de cada ciclo, para você se organizar.</p>
                 </details>
+
                 <details>
-                    <summary>Como funcionam as aulas em grupo?</summary>
-                    <p>São organizadas em pequenas turmas, considerando a compatibilidade de nível, conteúdo e horários.
-                        A formação depende de haver estudantes suficientes com perfil semelhante.</p>
+                    <summary>E se eu precisar faltar?</summary>
+                    <p>Faltas avisadas com pelo menos 24 horas de antecedência podem ser repostas no mesmo mês. Faltas
+                        sem aviso são consideradas aulas realizadas, sem reposição.</p>
                 </details>
+
                 <details>
-                    <summary>Os valores mostrados são definitivos?</summary>
-                    <p>São valores de lançamento, por aluno e por disciplina. Podem ser ajustados conforme
-                        disponibilidade de horários e formação de turmas. Confirme as condições atuais pelo WhatsApp.
+                    <summary>E se o professor faltar?</summary>
+                    <p>A aula é sempre reposta em data combinada ou descontada na mensalidade seguinte, à sua escolha.
                     </p>
                 </details>
+
+                <details>
+                    <summary>Como funcionam os feriados?</summary>
+                    <p>Os feriados já estão previstos no calendário entregue no início do ciclo. Quando a aula cai em
+                        feriado, ela é automaticamente transferida — sem prejuízo para o aluno.</p>
+                </details>
+
+                <details>
+                    <summary>Como faço para cancelar?</summary>
+                    <p>Basta avisar com 30 dias de antecedência. Não há multa — o aviso prévio permite que eu ajuste a
+                        agenda e finalize o ciclo com o aluno.</p>
+                </details>
+
                 <details>
                     <summary>Como faço para contratar?</summary>
-                    <p>Basta entrar em contato pelo WhatsApp ou preencher o formulário abaixo. A partir da conversa,
-                        alinhamos objetivos, horários e a modalidade mais adequada.</p>
+                    <p>Entre em contato pelo WhatsApp ou preencha o formulário abaixo. A partir da conversa, alinhamos
+                        objetivos, horários e o plano mais adequado.</p>
                 </details>
             </div>
         </div>
@@ -2518,8 +2429,8 @@
                     <span class="eyebrow">Contato</span>
                     <h2>Vamos melhorar seu desempenho?</h2>
                     <p>Não precisa continuar acumulando dúvidas. Fale comigo pelo WhatsApp ou preencha o formulário ao
-                        lado — respondo o mais rápido possível para entender sua situação e apresentar a modalidade mais
-                        adequada.</p>
+                        lado — respondo o mais rápido possível para entender sua situação e apresentar o plano mais
+                        adequado.</p>
 
                     <a class="contact__wa" href="#"
                         data-wa="Olá! Conheci o Lúmion pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
@@ -2573,8 +2484,8 @@
                             <label for="modalidade">Modalidade desejada *</label>
                             <select id="modalidade" name="modalidade" required>
                                 <option value="" selected disabled>Selecione</option>
-                                <option>Aulas individuais</option>
-                                <option>Pequenos grupos</option>
+                                <option>Aulas individuais — Essencial (1×/semana)</option>
+                                <option>Aulas individuais — Intensivo (2×/semana)</option>
                                 <option>Ainda não sei / quero orientação</option>
                             </select>
                         </div>
