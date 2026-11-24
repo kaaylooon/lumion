@@ -8,9 +8,10 @@
     <!-- ===================== SEO ===================== -->
     <title>Logikós — Aulas Particulares de Matemática e Física | Ensino Médio</title>
     <meta name="description"
-        content="Aulas particulares on-line de Matemática e Física para estudantes do Ensino Médio. Professor medalhista em olimpíadas (OBMEP, OBF, OBLI). Acompanhamento individual e em pequenos grupos, com diagnóstico das dificuldades e exercícios direcionados.">
-    <meta name="keywords"
-        content="aulas particulares matemática, aulas de física online, reforço ensino médio, professor particular matemática, aulas online matemática física, preparação OBMEP, OBF">
+        content="Aulas particulares on-line de Matemática e Física para
+        estudantes do Ensino Médio e Fundamental. Professor medalhista em olimpíadas (OBMEP, OBF, OBLI). Acompanhamento individual e em pequenos grupos, com diagnóstico das dificuldades e exercícios direcionados.">
+    <meta name="keywords" content="aulas particulares matemática, aulas de física online,
+        reforço ensino médio, professor particular matemática, aulas online matemática física, preparação OBMEP, OBF">
     <meta name="author" content="Kaylon Souza Gomes">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kaaylooon.github.io/logikos/">
@@ -30,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <script type="application/ld+json">
@@ -88,6 +89,7 @@
                 0 8px 20px rgba(10, 10, 10, .05);
             --font-sans: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
             --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+            --font-script: "Caveat", "Segoe UI", cursive;
             --fs-0: 0.750rem;
             --fs-1: 1.000rem;
             --fs-2: 1.333rem;
@@ -528,7 +530,8 @@
             position: relative;
             overflow: hidden;
             background: var(--bg-page);
-            padding: 5rem 0 5.5rem;
+            /* mais respiro vertical */
+            padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(5rem, 11vw, 8rem);
         }
 
         .hero::after {
@@ -542,22 +545,33 @@
             -webkit-mask-image: radial-gradient(600px 420px at 82% 12%, #000, transparent);
         }
 
+        /* Sem max-width aqui: o hero passa a alinhar com as outras sections */
         .hero__inner {
             position: relative;
             z-index: 1;
-            max-width: 780px;
+        }
+
+        /* Mas o texto continua confortável para leitura */
+        .hero h1,
+        .hero__actions,
+        .hero__trust {
+            max-width: 900px;
         }
 
         .hero h1 {
             margin-bottom: 1.25rem;
         }
 
+        /* Destaque manuscrito */
         .hero h1 em {
+            font-family: var(--font-script);
             font-style: normal;
             font-weight: 700;
-            background: var(--primary);
-            color: var(--on-primary);
-            padding: 0 .18em;
+            font-size: 1.25em;
+            color: var(--text-main);
+            letter-spacing: 0;
+            padding: 0 0.25em;
+            /* leve realce inferior, sem fundo preto */
         }
 
         .hero p {
@@ -583,8 +597,8 @@
         .hero__trust span {
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
-            padding: 0.4rem 0.85rem;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
             border: 1px solid var(--border-color);
             border-radius: 999px;
             background: var(--surface-container);
@@ -595,10 +609,42 @@
             text-transform: none;
             color: var(--text-main);
             transition: border-color 0.15s var(--hover-ease);
+            white-space: nowrap;
+        }
+
+        .hero__trust span::before {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85em;
+            line-height: 1;
         }
 
         .hero__trust span:hover {
             border-color: var(--primary);
+        }
+
+        /* Em telas estreitas os chips viram uma lista vertical com check */
+        @media (max-width: 640px) {
+            .hero__trust {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.45rem;
+            }
+
+            .hero__trust span {
+                display: flex;
+                width: 100%;
+                border: 0;
+                padding: 0;
+                background: none;
+                border-radius: 0;
+                white-space: normal;
+                font-size: 0.9rem;
+            }
+
+            .hero__trust span:hover {
+                border-color: transparent;
+            }
         }
 
         @media (max-width: 600px) {
@@ -870,10 +916,12 @@
             border: 1px solid var(--primary);
         }
 
+        /* Fundo branco no card preto — a borda preta (herdada do .badge base)
+           mantém o badge visível sobre a página branca e sobre o card. */
         .price-card--featured .badge {
             background: var(--on-primary);
             color: var(--primary);
-            border-color: var(--on-primary);
+            box-shadow: 0 2px 8px rgba(10, 10, 10, 0.10);
         }
 
         .combo {
@@ -921,7 +969,6 @@
         }
 
         /* ===================== Disciplinas ===================== */
-        /* ===================== Disciplinas ===================== */
         .subjects {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -959,7 +1006,6 @@
             font-size: 1.25rem;
         }
 
-        /* ---- Nível 1: tópicos principais (uma coluna) ---- */
         .subject>ul {
             display: flex;
             flex-direction: column;
@@ -975,7 +1021,6 @@
             color: var(--on-surface);
         }
 
-        /* ---- Nível 2: subtópicos (duas colunas) ---- */
         .subject ul ul {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1005,7 +1050,6 @@
             background: var(--primary);
         }
 
-        /* ---- Responsivo ---- */
         @media (max-width: 900px) {
             .subjects {
                 grid-template-columns: 1fr;
@@ -1096,7 +1140,7 @@
 
         @media (max-width: 780px) {
             .teacher {
-                grid-template-columns: 2fr;
+                grid-template-columns: 1fr;
             }
 
             .teacher__card {
@@ -1185,7 +1229,6 @@
             margin: 0.25rem 0 0;
         }
 
-        /* Cores de medalha — aplicadas via :has() */
         .bento-card:has(.card-value[data-medal="ouro"]) i {
             color: #8a6508;
             background: #f7ecc4;
@@ -1563,9 +1606,10 @@
             <nav class="nav" id="nav" aria-label="Navegação principal">
                 <a href="#como-funciona">Método</a>
                 <a href="#modalidades">Modalidades</a>
-                <a href="#disciplinas">Disciplinas</a>
                 <a href="#professor">Professor</a>
+                <a href="#distincoes">Distinções</a>
                 <a href="#faq">FAQ</a>
+                <a href="#disciplinas">Conteúdos</a>
                 <a href="#contato">Contato</a>
                 <a class="btn btn--gold header__cta" href="#"
                     data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre as aulas particulares on-line de Matemática e Física."
@@ -1749,8 +1793,7 @@
             <div class="combo">
                 <div>
                     <h3>Matemática & Física</h3>
-                    <p>Combinação das duas disciplinas com condição especial
-                    <p>
+                    <p>Combinação das duas disciplinas com condição especial.</p>
                 </div>
                 <a class="btn btn--gold" href="#"
                     data-wa="Olá! Conheci o Logikós pelo site e gostaria de saber mais sobre o combo de Matemática + Física."
@@ -1763,7 +1806,172 @@
         </div>
     </section>
 
-    <!-- ============================ DISCIPLINAS ============================ -->
+    <!-- ============================ PROFESSOR ============================ -->
+    <section class="section" id="professor">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Quem ensina</span>
+                <h2>Conheça seu professor</h2>
+            </div>
+
+            <div class="teacher">
+
+                <div class="teacher__bio">
+                    <p>
+                        Sou professor particular e idealizador do <strong>Logikós</strong>, com atuação voltada ao
+                        ensino
+                        de Matemática e Física para estudantes do Ensino
+                        Médio.
+                    </p>
+                    <p>
+                        Minha proposta é tornar o aprendizado mais claro, identificar as dificuldades que impedem o
+                        avanço do estudante e trabalhar cada conteúdo com explicações e exercícios direcionados.
+                    </p>
+                    <p>
+                        <strong>OBMEP</strong> (bronze), <strong>OBF</strong> (menção honrosa),
+                        <strong>OBLI</strong> (ouro e bronze), <strong>OBA</strong> (prata), além de ouros na
+                        <strong>O2</strong> e na <strong>OLITEF</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ DISTINÇÕES ============================ -->
+    <section class="section section--alt" id="distincoes">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">Provas concretas</span>
+                <h2>Distinções em olimpíadas de conhecimento</h2>
+                <p class="lead">Resultados em olimpíadas nacionais e internacionais de exatas e ciências da natureza — a
+                    mesma base de raciocínio que trabalhamos em aula.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- OBMEP -->
+                <article class="bento-card bento-md-w">
+                    <i aria-hidden="true">★</i>
+                    <div>
+                        <div class="card-label">OBMEP · 2025</div>
+                        <div class="card-value" data-medal="bronze">Bronze</div>
+                        <p class="card-sub">Matemática · Olimpíada Brasileira</p>
+                    </div>
+                </article>
+
+                <!-- OBF -->
+                <article class="bento-card bento-md-w">
+                    <i aria-hidden="true">★</i>
+                    <div>
+                        <div class="card-label">OBF · 2025</div>
+                        <div class="card-value" data-medal="mencao">Menção Honrosa</div>
+                        <p class="card-sub">Física · Olimpíada Brasileira</p>
+                    </div>
+                </article>
+
+                <!-- OBA -->
+                <article class="bento-card bento-sm">
+                    <i aria-hidden="true">★</i>
+                    <div>
+                        <div class="card-label">OBA · 2025</div>
+                        <div class="card-value" data-medal="prata">Prata</div>
+                        <p class="card-sub">Astronomia e Astronáutica</p>
+                    </div>
+                </article>
+
+                <!-- O2 -->
+                <article class="bento-card bento-sm">
+                    <i aria-hidden="true">★</i>
+                    <div>
+                        <div class="card-label">O2 · 2024</div>
+                        <div class="card-value" data-medal="ouro">Ouro</div>
+                        <p class="card-sub">Olimpíada do Oceano</p>
+                    </div>
+                </article>
+
+                <!-- OBLI -->
+                <article class="bento-card bento-sm">
+                    <i aria-hidden="true">★</i>
+                    <div>
+                        <div class="card-label">OBLI · 2024</div>
+                        <div class="card-value" data-medal="ouro">Ouro</div>
+                        <p class="card-sub">Língua Inglesa</p>
+                    </div>
+                </article>
+
+                <!-- OLITEF -->
+                <article class="bento-card bento-sm">
+                    <i aria-hidden="true">★</i>
+                    <div>
+                        <div class="card-label">OLITEF · 2024</div>
+                        <div class="card-value" data-medal="ouro">Ouro</div>
+                        <p class="card-sub">Educação Financeira</p>
+                    </div>
+                </article>
+            </div>
+
+            <p class="card-sub" style="margin-top: 1.25rem;">
+                Também medalhista em <strong>OBG</strong> (Geografia, 2024) e <strong>OLITEF</strong> (2025).
+                Participação em múltiplas fases regionais e nacionais.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+                <span class="eyebrow">Dúvidas</span>
+                <h2>Perguntas frequentes</h2>
+            </div>
+
+            <div class="faq">
+                <details>
+                    <summary>As aulas são presenciais?</summary>
+                    <p>Não. O atendimento apresentado nesta página é totalmente on-line, com aulas ao vivo por
+                        videochamada.</p>
+                </details>
+                <details>
+                    <summary>Preciso contratar Matemática e Física juntas?</summary>
+                    <p>Não. Você pode buscar acompanhamento em apenas uma das disciplinas ou nas duas, conforme sua
+                        necessidade.</p>
+                </details>
+                <details>
+                    <summary>As aulas podem ser em inglês?</summary>
+                    <p>Sim. Além do português, ofereço aulas em inglês — útil para estudantes bilíngues, famílias
+                        expatriadas ou quem quer treinar o vocabulário técnico da área.</p>
+                </details>
+                <details>
+                    <summary>Vocês preparam para olimpíadas?</summary>
+                    <p>Sim. Pela minha própria trajetória em OBMEP, OBF, OBA e outras competições, tenho familiaridade
+                        com o tipo de raciocínio e de questões dessas provas, e posso incluir essa preparação no plano
+                        de estudos.</p>
+                </details>
+                <details>
+                    <summary>Como funcionam as aulas individuais?</summary>
+                    <p>O planejamento é adaptado ao nível, às dificuldades e aos objetivos do estudante. Cada aula é
+                        preparada a partir do diagnóstico inicial e ajustada conforme a evolução.</p>
+                </details>
+                <details>
+                    <summary>Como funcionam as aulas em grupo?</summary>
+                    <p>São organizadas em pequenas turmas, considerando a compatibilidade de nível, conteúdo e horários.
+                        A formação depende de haver estudantes suficientes com perfil semelhante.</p>
+                </details>
+                <details>
+                    <summary>Os valores mostrados são definitivos?</summary>
+                    <p>São valores de lançamento, por aluno e por disciplina. Podem ser ajustados conforme
+                        disponibilidade de horários e formação de turmas. Confirme as condições atuais pelo WhatsApp.
+                    </p>
+                </details>
+                <details>
+                    <summary>Como faço para contratar?</summary>
+                    <p>Basta entrar em contato pelo WhatsApp ou preencher o formulário abaixo. A partir da conversa,
+                        alinhamos objetivos, horários e a modalidade mais adequada.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ DISCIPLINAS (movida para cá) ============================ -->
     <section class="section section--alt" id="disciplinas">
         <div class="container">
             <div class="section-head">
@@ -2080,7 +2288,7 @@
                                 <li>Período orbital</li>
                                 <li>Satélites</li>
                                 <li>Velocidade de escape</li>
-                                <li>Variação de ggg com altitude e profundidade</li>
+                                <li>Variação de g com altitude e profundidade</li>
                             </ul>
                         </li>
                         <li>Hidrostática
@@ -2254,184 +2462,6 @@
                         </li>
                     </ul>
                 </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ PROFESSOR ============================ -->
-    <section class="section" id="professor">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">Quem ensina</span>
-                <h2>Conheça seu professor</h2>
-            </div>
-
-            <div class="teacher">
-                <aside class="teacher__card">
-                    <div class="teacher__avatar" aria-hidden="true">KS</div>
-                    <h3>Kaylon Souza Gomes</h3>
-                </aside>
-
-                <div class="teacher__bio">
-                    <p>
-                        Sou professor particular e idealizador do <strong>Logikós</strong>, com atuação voltada ao
-                        ensino
-                        de Matemática e Física para estudantes do Ensino Médio.
-                    </p>
-                    <p>
-                        Minha proposta é tornar o aprendizado mais claro, identificar as dificuldades que impedem o
-                        avanço do estudante e trabalhar cada conteúdo com explicações e exercícios direcionados.
-                    </p>
-                    <p>
-                        Minha trajetória em competições de conhecimento inclui medalhas em olimpíadas nacionais e
-                        internacionais — como <strong>OBMEP</strong> (bronze), <strong>OBF</strong> (menção honrosa),
-                        <strong>OBLI</strong> (ouro e bronze), <strong>OBA</strong> (prata), além de ouros na
-                        <strong>O2</strong> e na <strong>OLITEF</strong>. Essa vivência me ensinou a trabalhar
-                        exatamente o tipo de raciocínio que as provas mais desafiadoras exigem.
-                    </p>
-                    <div class="teacher__tags">
-                        <span>Ensino Médio</span>
-                        <span>Matemática</span>
-                        <span>Física</span>
-                        <span>OBMEP / OBF</span>
-                        <span>Português · Inglês</span>
-                        <span>Aulas on-line</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================ DISTINÇÕES ============================ -->
-    <section class="section section--alt" id="distincoes">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">Provas concretas</span>
-                <h2>Distinções em olimpíadas de conhecimento</h2>
-                <p class="lead">Resultados em olimpíadas nacionais e internacionais de exatas e ciências da natureza — a
-                    mesma base de raciocínio que trabalhamos em aula.</p>
-            </div>
-
-            <div class="bento-grid">
-                <!-- OBMEP -->
-                <article class="bento-card bento-md-w">
-                    <i aria-hidden="true">★</i>
-                    <div>
-                        <div class="card-label">OBMEP · 2025</div>
-                        <div class="card-value" data-medal="bronze">Bronze</div>
-                        <p class="card-sub">Matemática · Olimpíada Brasileira</p>
-                    </div>
-                </article>
-
-                <!-- OBF -->
-                <article class="bento-card bento-md-w">
-                    <i aria-hidden="true">★</i>
-                    <div>
-                        <div class="card-label">OBF · 2025</div>
-                        <div class="card-value" data-medal="mencao">Menção Honrosa</div>
-                        <p class="card-sub">Física · Olimpíada Brasileira</p>
-                    </div>
-                </article>
-
-                <!-- OBA -->
-                <article class="bento-card bento-sm">
-                    <i aria-hidden="true">★</i>
-                    <div>
-                        <div class="card-label">OBA · 2025</div>
-                        <div class="card-value" data-medal="prata">Prata</div>
-                        <p class="card-sub">Astronomia e Astronáutica</p>
-                    </div>
-                </article>
-
-                <!-- O2 -->
-                <article class="bento-card bento-sm">
-                    <i aria-hidden="true">★</i>
-                    <div>
-                        <div class="card-label">O2 · 2024</div>
-                        <div class="card-value" data-medal="ouro">Ouro</div>
-                        <p class="card-sub">Olimpíada do Oceano</p>
-                    </div>
-                </article>
-
-                <!-- OBLI -->
-                <article class="bento-card bento-sm">
-                    <i aria-hidden="true">★</i>
-                    <div>
-                        <div class="card-label">OBLI · 2024</div>
-                        <div class="card-value" data-medal="ouro">Ouro</div>
-                        <p class="card-sub">Língua Inglesa</p>
-                    </div>
-                </article>
-
-                <!-- OLITEF -->
-                <article class="bento-card bento-sm">
-                    <i aria-hidden="true">★</i>
-                    <div>
-                        <div class="card-label">OLITEF · 2024</div>
-                        <div class="card-value" data-medal="ouro">Ouro</div>
-                        <p class="card-sub">Educação Financeira</p>
-                    </div>
-                </article>
-            </div>
-
-            <p class="card-sub" style="margin-top: 1.25rem;">
-                Também medalhista em <strong>OBG</strong> (Geografia, 2024) e <strong>OLITEF</strong> (2025).
-                Participação em múltiplas fases regionais e nacionais.
-            </p>
-        </div>
-    </section>
-
-    <!-- ============================ FAQ ============================ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
-                <span class="eyebrow">Dúvidas</span>
-                <h2>Perguntas frequentes</h2>
-            </div>
-
-            <div class="faq">
-                <details>
-                    <summary>As aulas são presenciais?</summary>
-                    <p>Não. O atendimento apresentado nesta página é totalmente on-line, com aulas ao vivo por
-                        videochamada.</p>
-                </details>
-                <details>
-                    <summary>Preciso contratar Matemática e Física juntas?</summary>
-                    <p>Não. Você pode buscar acompanhamento em apenas uma das disciplinas ou nas duas, conforme sua
-                        necessidade.</p>
-                </details>
-                <details>
-                    <summary>As aulas podem ser em inglês?</summary>
-                    <p>Sim. Além do português, ofereço aulas em inglês — útil para estudantes bilíngues, famílias
-                        expatriadas ou quem quer treinar o vocabulário técnico da área.</p>
-                </details>
-                <details>
-                    <summary>Vocês preparam para olimpíadas?</summary>
-                    <p>Sim. Pela minha própria trajetória em OBMEP, OBF, OBA e outras competições, tenho familiaridade
-                        com o tipo de raciocínio e de questões dessas provas, e posso incluir essa preparação no plano
-                        de estudos.</p>
-                </details>
-                <details>
-                    <summary>Como funcionam as aulas individuais?</summary>
-                    <p>O planejamento é adaptado ao nível, às dificuldades e aos objetivos do estudante. Cada aula é
-                        preparada a partir do diagnóstico inicial e ajustada conforme a evolução.</p>
-                </details>
-                <details>
-                    <summary>Como funcionam as aulas em grupo?</summary>
-                    <p>São organizadas em pequenas turmas, considerando a compatibilidade de nível, conteúdo e horários.
-                        A formação depende de haver estudantes suficientes com perfil semelhante.</p>
-                </details>
-                <details>
-                    <summary>Os valores mostrados são definitivos?</summary>
-                    <p>São valores de lançamento, por aluno e por disciplina. Podem ser ajustados conforme
-                        disponibilidade de horários e formação de turmas. Confirme as condições atuais pelo WhatsApp.
-                    </p>
-                </details>
-                <details>
-                    <summary>Como faço para contratar?</summary>
-                    <p>Basta entrar em contato pelo WhatsApp ou preencher o formulário abaixo. A partir da conversa,
-                        alinhamos objetivos, horários e a modalidade mais adequada.</p>
-                </details>
             </div>
         </div>
     </section>
